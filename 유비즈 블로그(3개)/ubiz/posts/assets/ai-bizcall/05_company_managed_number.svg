@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#f8faff"/><stop offset="1" stop-color="#dfe8ff"/>
+  </linearGradient>
+  <linearGradient id="dark" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#11152d"/><stop offset="1" stop-color="#2b214e"/>
+  </linearGradient>
+  <linearGradient id="phone" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#1a2036"/><stop offset="1" stop-color="#05070f"/>
+  </linearGradient>
+  <filter id="shadow"><feDropShadow dx="0" dy="12" stdDeviation="18" flood-opacity=".22"/></filter>
+  <style>
+    .b{font-family:Pretendard,'Noto Sans KR',Arial,sans-serif;font-weight:800}
+    .r{font-family:Pretendard,'Noto Sans KR',Arial,sans-serif;font-weight:500}
+  </style>
+</defs>
+<rect width="1200" height="1200" fill="url(#bg)"/>
+<rect x="55" y="60" width="810" height="245" rx="34" fill="#fff" filter="url(#shadow)"/>
+<text x="90" y="150" class="b" font-size="58" fill="#281d78">직원이 변경돼도</text>
+<text x="90" y="235" class="b" font-size="58" fill="#e30068">회사번호는 회사가 관리</text>
+<g transform="translate(300 390)" filter="url(#shadow)">
+  <rect x="0" y="0" width="760" height="410" rx="28" fill="#fff" stroke="#c9d1e6" stroke-width="5"/>
+  <rect x="0" y="0" width="760" height="70" rx="28" fill="#2f3278"/>
+  <text x="35" y="48" class="b" font-size="30" fill="#fff">유비즈 관리자페이지</text>
+  <g class="r" font-size="27" fill="#30364a">
+    <text x="45" y="130">이름</text><text x="260" y="130">내선번호</text><text x="520" y="130">상태</text>
+    <text x="45" y="190">김유비</text><text x="260" y="190">1001</text><text x="520" y="190" fill="#1bb76e">● 사용중</text>
+    <text x="45" y="250">이영업</text><text x="260" y="250">1002</text><text x="520" y="250" fill="#1bb76e">● 사용중</text>
+    <text x="45" y="310">박마케팅</text><text x="260" y="310">1003</text><text x="520" y="310" fill="#1bb76e">● 사용중</text>
+  </g>
+</g>
+
+<rect x="0" y="1038" width="1200" height="162" fill="#321b7e"/>
+<rect x="0" y="1038" width="1200" height="18" fill="#e30068"/>
+<text x="58" y="1122" class="b" font-size="44" fill="#fff">유비즈</text>
+<text x="225" y="1120" class="r" font-size="25" fill="#e9e4ff">기업통신전담센터</text>
+<text x="1140" y="1114" text-anchor="end" class="b" font-size="54" fill="#fff">1661-7372</text>
+<text x="1140" y="1158" text-anchor="end" class="r" font-size="22" fill="#ded7ff">u-biz.co.kr</text></svg>
