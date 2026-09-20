@@ -6,7 +6,10 @@ on:
       - '.github/workflows/ubiz-artwork.yml'
       - '유비즈 블로그(3개)/ubiz/tools/render_ai_bizcall.py'
 permissions:
-  contents: read
+  contents: write
+concurrency:
+  group: ubiz-artwork-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   artwork:
     runs-on: ubuntu-latest
@@ -18,16 +21,17 @@ jobs:
           python-version: '3.12'
       - name: Install image tools
         run: pip install Pillow==11.3.0 requests==2.32.4
-      - name: Prepare licensed illustration photos
+      - name: Prepare illustration photographs and temporary font
         shell: python
         run: |
           from pathlib import Path
           from concurrent.futures import ThreadPoolExecutor
           import requests
-          from PIL import Image, ImageOps, ImageDraw
+          import os
+          from PIL import Image
           root = Path('artwork-sources')
           root.mkdir(exist_ok=True)
-          ids = [10347148, 4405372, 7054521, 7657480, 10376213, 6170640, 5951328, 5186349]
+          ids = [4405372, 7657480, 10376213, 6170640, 5951328, 5186349]
           def fetch(i):
               url = f'https://images.pexels.com/photos/{i}/pexels-photo-{i}.jpeg?auto=compress&cs=tinysrgb&w=2600&q=92'
               response = requests.get(url, timeout=45)
@@ -38,29 +42,33 @@ jobs:
                   image.verify()
           with ThreadPoolExecutor(max_workers=4) as pool:
               list(pool.map(fetch, ids))
-          sheet = Image.new('RGB', (1600, 840), 'white')
-          draw = ImageDraw.Draw(sheet)
-          for j, i in enumerate(ids):
-              with Image.open(root / f'{i}.jpg') as image:
-                  thumb = ImageOps.fit(image.convert('RGB'), (390, 390))
-              x, y = (j % 4) * 400, (j // 4) * 420
-              sheet.paste(thumb, (x, y))
-              draw.text((x + 10, y + 395), str(i), fill='black')
-          sheet.save(root / 'contact_sheet.jpg', quality=90)
-      - name: Render final artwork when renderer is present
+          font = Path(os.environ['RUNNER_TEMP']) / 'NanumSquareB.ttf'
+          response = requests.get('https://raw.githubusercontent.com/hiun/NanumSquare/master/NanumSquareB.ttf', timeout=45)
+          response.raise_for_status()
+          font.write_bytes(response.content)
+          with open(os.environ['GITHUB_ENV'], 'a') as env:
+              env.write(f'UBIZ_FONT={font}\n')
+      - name: Render seven final images
+        run: python '유비즈 블로그(3개)/ubiz/tools/render_ai_bizcall.py' --photos artwork-sources --output artwork-output
+      - name: Publish only generated artwork to this review branch
         shell: bash
         run: |
-          SCRIPT='유비즈 블로그(3개)/ubiz/tools/render_ai_bizcall.py'
-          if [ -f "$SCRIPT" ]; then
-            sudo apt-get update -qq
-            sudo apt-get install -y fonts-nanum
-            python "$SCRIPT" --photos artwork-sources --output artwork-output
+          ASSET_DIR='유비즈 블로그(3개)/ubiz/posts/assets/ai-bizcall'
+          mkdir -p "$ASSET_DIR/jpg"
+          cp artwork-output/images/*.png "$ASSET_DIR/"
+          cp artwork-output/jpg/*.jpg "$ASSET_DIR/jpg/"
+          cp artwork-output/preview.jpg artwork-output/PHOTO_SOURCES.txt artwork-output/manifest.json "$ASSET_DIR/"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- "$ASSET_DIR"
+          if ! git diff --cached --quiet; then
+            git commit -m 'Publish high-resolution AI Bizcall photographic image series'
+            git pull --rebase origin "$GITHUB_REF_NAME"
+            git push origin "HEAD:$GITHUB_REF_NAME"
           fi
       - uses: actions/upload-artifact@v4
         with:
-          name: ubiz-artwork
-          path: |
-            artwork-sources/
-            artwork-output/
-          retention-days: 7
+          name: ubiz-ai-bizcall-premium
+          path: artwork-output/
+          retention-days: 14
           if-no-files-found: error
