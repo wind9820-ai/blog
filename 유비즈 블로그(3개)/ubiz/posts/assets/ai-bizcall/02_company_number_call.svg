@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#f8faff"/><stop offset="1" stop-color="#dfe8ff"/>
+  </linearGradient>
+  <linearGradient id="dark" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#11152d"/><stop offset="1" stop-color="#2b214e"/>
+  </linearGradient>
+  <linearGradient id="phone" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#1a2036"/><stop offset="1" stop-color="#05070f"/>
+  </linearGradient>
+  <filter id="shadow"><feDropShadow dx="0" dy="12" stdDeviation="18" flood-opacity=".22"/></filter>
+  <style>
+    .b{font-family:Pretendard,'Noto Sans KR',Arial,sans-serif;font-weight:800}
+    .r{font-family:Pretendard,'Noto Sans KR',Arial,sans-serif;font-weight:500}
+  </style>
+</defs>
+<rect width="1200" height="1200" fill="url(#bg)"/>
+<rect x="55" y="60" width="650" height="245" rx="34" fill="#fff" filter="url(#shadow)"/>
+<text x="90" y="150" class="b" font-size="62" fill="#281d78">개인번호 대신</text>
+<text x="90" y="235" class="b" font-size="62" fill="#e30068">회사번호로 통화</text>
+<circle cx="885" cy="420" r="230" fill="#cbd9ff"/>
+<circle cx="885" cy="340" r="95" fill="#f0c7b0"/>
+<path d="M720 830 Q750 530 885 520 Q1020 530 1050 830 Z" fill="#17243f"/>
+<rect x="807" y="285" width="120" height="235" rx="28" fill="#111827" transform="rotate(-18 867 402)"/>
+<path d="M515 450 q110 -80 205 0" fill="none" stroke="#7048d8" stroke-width="18" stroke-linecap="round"/>
+<path d="M545 500 q80 -55 145 0" fill="none" stroke="#7048d8" stroke-width="14" stroke-linecap="round"/>
+<circle cx="470" cy="580" r="85" fill="#fff" filter="url(#shadow)"/>
+<path d="M437 545 q30 -26 55 2 l22 22 q10 12 0 24 l-22 20 q-18 15 -47 -12 q-26 -25 -8 -56z" fill="#6a42db"/>
+
+<rect x="0" y="1038" width="1200" height="162" fill="#321b7e"/>
+<rect x="0" y="1038" width="1200" height="18" fill="#e30068"/>
+<text x="58" y="1122" class="b" font-size="44" fill="#fff">유비즈</text>
+<text x="225" y="1120" class="r" font-size="25" fill="#e9e4ff">기업통신전담센터</text>
+<text x="1140" y="1114" text-anchor="end" class="b" font-size="54" fill="#fff">1661-7372</text>
+<text x="1140" y="1158" text-anchor="end" class="r" font-size="22" fill="#ded7ff">u-biz.co.kr</text></svg>

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#f8faff"/><stop offset="1" stop-color="#dfe8ff"/>
+  </linearGradient>
+  <linearGradient id="dark" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#11152d"/><stop offset="1" stop-color="#2b214e"/>
+  </linearGradient>
+  <linearGradient id="phone" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#1a2036"/><stop offset="1" stop-color="#05070f"/>
+  </linearGradient>
+  <filter id="shadow"><feDropShadow dx="0" dy="12" stdDeviation="18" flood-opacity=".22"/></filter>
+  <style>
+    .b{font-family:Pretendard,'Noto Sans KR',Arial,sans-serif;font-weight:800}
+    .r{font-family:Pretendard,'Noto Sans KR',Arial,sans-serif;font-weight:500}
+  </style>
+</defs>
+<rect width="1200" height="1200" fill="url(#bg)"/>
+<rect x="55" y="60" width="690" height="245" rx="34" fill="#fff" filter="url(#shadow)"/>
+<text x="90" y="150" class="b" font-size="60" fill="#281d78">통화는 녹음하고</text>
+<text x="90" y="235" class="b" font-size="60" fill="#e30068">AI가 요약까지</text>
+<g transform="translate(650 255)" filter="url(#shadow)">
+  <rect x="0" y="0" width="350" height="660" rx="48" fill="#111827"/>
+  <rect x="32" y="80" width="286" height="500" rx="24" fill="#161d31"/>
+  <g stroke="#4f76ff" stroke-width="12" stroke-linecap="round">
+    <line x1="70" y1="330" x2="70" y2="390"/><line x1="105" y1="300" x2="105" y2="420"/><line x1="140" y1="275" x2="140" y2="445"/>
+    <line x1="175" y1="310" x2="175" y2="410"/><line x1="210" y1="290" x2="210" y2="430"/><line x1="245" y1="320" x2="245" y2="400"/>
+  </g>
+  <circle cx="175" cy="515" r="42" fill="#ef3f4f"/>
+</g>
+<circle cx="370" cy="600" r="140" fill="#fff" filter="url(#shadow)"/>
+<path d="M350 520 h40 v110 q0 35 -20 35 q-20 0 -20 -35z" fill="#6a42db"/>
+<path d="M305 600 q0 105 65 105 q65 0 65 -105" fill="none" stroke="#6a42db" stroke-width="14"/>
+
+<rect x="0" y="1038" width="1200" height="162" fill="#321b7e"/>
+<rect x="0" y="1038" width="1200" height="18" fill="#e30068"/>
+<text x="58" y="1122" class="b" font-size="44" fill="#fff">유비즈</text>
+<text x="225" y="1120" class="r" font-size="25" fill="#e9e4ff">기업통신전담센터</text>
+<text x="1140" y="1114" text-anchor="end" class="b" font-size="54" fill="#fff">1661-7372</text>
+<text x="1140" y="1158" text-anchor="end" class="r" font-size="22" fill="#ded7ff">u-biz.co.kr</text></svg>
