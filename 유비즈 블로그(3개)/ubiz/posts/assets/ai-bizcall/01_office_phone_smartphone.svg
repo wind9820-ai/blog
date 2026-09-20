@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#f8faff"/><stop offset="1" stop-color="#dfe8ff"/>
+  </linearGradient>
+  <linearGradient id="dark" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#11152d"/><stop offset="1" stop-color="#2b214e"/>
+  </linearGradient>
+  <linearGradient id="phone" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#1a2036"/><stop offset="1" stop-color="#05070f"/>
+  </linearGradient>
+  <filter id="shadow"><feDropShadow dx="0" dy="12" stdDeviation="18" flood-opacity=".22"/></filter>
+  <style>
+    .b{font-family:Pretendard,'Noto Sans KR',Arial,sans-serif;font-weight:800}
+    .r{font-family:Pretendard,'Noto Sans KR',Arial,sans-serif;font-weight:500}
+  </style>
+</defs>
+<rect width="1200" height="1200" fill="url(#bg)"/>
+<rect x="55" y="60" width="650" height="245" rx="34" fill="#fff" filter="url(#shadow)"/>
+<text x="90" y="150" class="b" font-size="62" fill="#281d78">사무실 전화와</text>
+<text x="90" y="235" class="b" font-size="62" fill="#e30068">스마트폰을 함께</text>
+<g transform="translate(105 460)" filter="url(#shadow)">
+  <path d="M0 280 h420 l-30 150 h-360z" fill="#1b2030"/>
+  <rect x="82" y="85" width="265" height="210" rx="24" fill="#2f3648"/>
+  <rect x="125" y="118" width="180" height="54" rx="8" fill="#9ba4b8"/>
+  <circle cx="151" cy="220" r="16" fill="#6e768a"/><circle cx="204" cy="220" r="16" fill="#6e768a"/><circle cx="257" cy="220" r="16" fill="#6e768a"/>
+</g>
+<g transform="translate(735 260)" filter="url(#shadow)">
+  <rect x="0" y="0" width="320" height="640" rx="48" fill="url(#phone)" stroke="#9ca7bd" stroke-width="7"/>
+  <circle cx="160" cy="60" r="10" fill="#444d67"/>
+  <text x="160" y="170" text-anchor="middle" class="b" font-size="38" fill="#fff">U+ AI 비즈콜</text>
+  <circle cx="160" cy="300" r="64" fill="#404b69"/><path d="M140 275 h40 v48 h-40z" fill="#fff"/>
+  <text x="160" y="415" text-anchor="middle" class="b" font-size="34" fill="#fff">업무전화</text>
+  <circle cx="98" cy="530" r="42" fill="#ef5148"/><circle cx="222" cy="530" r="42" fill="#27c36a"/>
+</g>
+
+<rect x="0" y="1038" width="1200" height="162" fill="#321b7e"/>
+<rect x="0" y="1038" width="1200" height="18" fill="#e30068"/>
+<text x="58" y="1122" class="b" font-size="44" fill="#fff">유비즈</text>
+<text x="225" y="1120" class="r" font-size="25" fill="#e9e4ff">기업통신전담센터</text>
+<text x="1140" y="1114" text-anchor="end" class="b" font-size="54" fill="#fff">1661-7372</text>
+<text x="1140" y="1158" text-anchor="end" class="r" font-size="22" fill="#ded7ff">u-biz.co.kr</text></svg>
