@@ -1,0 +1,25 @@
+{
+  "size_px": [
+    2000,
+    2000
+  ],
+  "brand": "유비즈 기업통신전담센터",
+  "phone": "1661-7372",
+  "site": "u-biz.co.kr",
+  "palette": {
+    "navy": "#00142E",
+    "mint": "#32F4BB",
+    "white": "#FFFFFF"
+  },
+  "body_text": "brand and contact only",
+  "photos_are_illustrative": true,
+  "files": [
+    "00_thumbnail",
+    "01_office_phone_smartphone",
+    "02_company_number_call",
+    "03_dnd_mode",
+    "04_ai_support",
+    "05_company_managed_number",
+    "06_contact"
+  ]
+}
