@@ -1,0 +1,66 @@
+name: UBIZ artwork build
+on:
+  push:
+    branches: [revise-ai-bizcall-images]
+    paths:
+      - '.github/workflows/ubiz-artwork.yml'
+      - '유비즈 블로그(3개)/ubiz/tools/render_ai_bizcall.py'
+permissions:
+  contents: read
+jobs:
+  artwork:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install image tools
+        run: pip install Pillow==11.3.0 requests==2.32.4
+      - name: Prepare licensed illustration photos
+        shell: python
+        run: |
+          from pathlib import Path
+          from concurrent.futures import ThreadPoolExecutor
+          import requests
+          from PIL import Image, ImageOps, ImageDraw
+          root = Path('artwork-sources')
+          root.mkdir(exist_ok=True)
+          ids = [10347148, 4405372, 7054521, 7657480, 10376213, 6170640, 5951328, 5186349]
+          def fetch(i):
+              url = f'https://images.pexels.com/photos/{i}/pexels-photo-{i}.jpeg?auto=compress&cs=tinysrgb&w=2600&q=92'
+              response = requests.get(url, timeout=45)
+              response.raise_for_status()
+              file = root / f'{i}.jpg'
+              file.write_bytes(response.content)
+              with Image.open(file) as image:
+                  image.verify()
+          with ThreadPoolExecutor(max_workers=4) as pool:
+              list(pool.map(fetch, ids))
+          sheet = Image.new('RGB', (1600, 840), 'white')
+          draw = ImageDraw.Draw(sheet)
+          for j, i in enumerate(ids):
+              with Image.open(root / f'{i}.jpg') as image:
+                  thumb = ImageOps.fit(image.convert('RGB'), (390, 390))
+              x, y = (j % 4) * 400, (j // 4) * 420
+              sheet.paste(thumb, (x, y))
+              draw.text((x + 10, y + 395), str(i), fill='black')
+          sheet.save(root / 'contact_sheet.jpg', quality=90)
+      - name: Render final artwork when renderer is present
+        shell: bash
+        run: |
+          SCRIPT='유비즈 블로그(3개)/ubiz/tools/render_ai_bizcall.py'
+          if [ -f "$SCRIPT" ]; then
+            sudo apt-get update -qq
+            sudo apt-get install -y fonts-nanum
+            python "$SCRIPT" --photos artwork-sources --output artwork-output
+          fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ubiz-artwork
+          path: |
+            artwork-sources/
+            artwork-output/
+          retention-days: 7
+          if-no-files-found: error
